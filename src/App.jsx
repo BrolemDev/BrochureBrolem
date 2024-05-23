@@ -20,7 +20,6 @@ function App() {
           <Routes>
             <Route path="/en" element={<PDFViewer language="en" />} />
             <Route path="/ko" element={<PDFViewer language="ko" />} />
-            {/* Otras rutas */}
           </Routes>
         )}
       </div>
