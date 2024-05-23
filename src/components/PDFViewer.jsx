@@ -1,12 +1,11 @@
-// src/components/PDFViewer.js
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import pdf from '../brochure.pdf';
+import PropTypes from 'prop-types';
 import 'tailwindcss/tailwind.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const PDFViewer = () => {
+const PDFViewer = ({ language }) => {
   const [numPages, setNumPages] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,6 +15,8 @@ const PDFViewer = () => {
     }, 1500); // Simulate loading time
     return () => clearTimeout(timer);
   }, []);
+
+  const pdf = `/brochure/brochure_${language}.pdf`; // Construir la URL del PDF basada en el idioma
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -45,4 +46,7 @@ const PDFViewer = () => {
 
 };
 
+PDFViewer.propTypes = {
+  language: PropTypes.string.isRequired // Definir que language es requerido y debe ser de tipo string
+};
 export default PDFViewer;
