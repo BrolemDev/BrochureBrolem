@@ -1,3 +1,10 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .loader {
   border: 8px solid #f3f3f3;
   border-radius: 50%;

@@ -1,7 +1,7 @@
 // src/components/PDFViewer.js
 import { useState, useEffect } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import pdf from '../ByteBeatJan2024.pdf';
+import pdf from '../brochure.pdf';
 import 'tailwindcss/tailwind.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
@@ -23,7 +23,7 @@ const PDFViewer = () => {
   }
 
   return (
-    <div className="w-screen flex flex-col gap-5 justify-center items-center bg-gray-900 overflow-y-auto min-h-screen">
+    <div className="w-screen flex flex-col gap-5 justify-center items-center bg-gradient-to-b from-green-900 to-green-500 overflow-y-auto min-h-screen">
       {loading ? (
         <div className="loader">Cargando...</div>
       ) : (
@@ -42,6 +42,7 @@ const PDFViewer = () => {
       )}
     </div>
   );
+
 };
 
 export default PDFViewer;
